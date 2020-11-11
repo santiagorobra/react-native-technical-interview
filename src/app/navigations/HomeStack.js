@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HeaderIconLeftCustom from '../shared/components/HeaderIconLeftCustom';
 import { HomeTabs } from './HomeTabs';
+import BookDetailScreen from '../screens/BookDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -11,6 +10,11 @@ const screens = [
     label: 'Home',
     route: 'Home',
     component: HomeTabs
+  },
+  {
+    label: 'Book Detail',
+    route: 'Detail',
+    component: BookDetailScreen
   },
 ];
 
@@ -23,18 +27,8 @@ const HomeStack = () => {
             key={i}
             name={screen.route} 
             component={screen.component}
-            options={({navigation}) => ({
-              headerShown: screen.label === 'Home' ? false : true,
-              title: screen.label,
-              headerTintColor: 'transparent',
-              headerStyle: styles.headerStyle,
-              headerLeft: () => (
-                <HeaderIconLeftCustom 
-                  icon='doubleleft'
-                  type="antdesign"
-                  onPress={() => navigation.goBack()}
-                />
-              )
+            options={() => ({
+              headerShown: false,
             })}
           />
         ))
@@ -42,14 +36,5 @@ const HomeStack = () => {
     </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  headerStyle: {
-    height: 60,
-    elevation: 0,
-    shadowOpacity: 0,
-    borderBottomWidth: 0,
-  }
-});
 
 export default HomeStack;

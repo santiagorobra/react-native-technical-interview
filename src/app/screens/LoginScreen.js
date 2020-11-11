@@ -6,7 +6,8 @@ import {
   Image,
   Alert,
   Text,
-  ImageBackground
+  ImageBackground,
+  Platform
 } 
 from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -102,6 +103,7 @@ const LoginScreen = () => {
         showAlert('Error', 'Datos invalidos', () => dispatch(loadingAction('')));
       }
     } catch (err) {
+      console.log(err)
       showAlert('Error', 'Error en el servidor', () => dispatch(loadingAction('')));
     }
   }
@@ -138,35 +140,29 @@ const LoginScreen = () => {
               />
             ))
           }
-          <View style={{display: 'flex', flexDirection: 'row', zIndex: 5, marginBottom: 20}}>
-            <View style={{flex: 1}}>
-              <Text style={{color: colorsApp.light, marginLeft: 4}}>Edad:</Text>
-              <DropDownPicker
-                items={ages}
-                searchable={true}
-                searchablePlaceholder='Buscar..'
-                placeholder='Edad'
-                defaultValue={formValues.age}
-                containerStyle={styles.dropDownContainer}
-                style={{backgroundColor: colorsApp.light, borderColor: colorsApp.light}}
-                itemStyle={{
-                  justifyContent: 'flex-start',
-                }}
-                dropDownStyle={styles.dropDownStyle}
-                onChangeItem={itemValue => handleInputChange({ nativeEvent: { text: itemValue.value } }, 'age')}
-              />
-            </View>
-            <View style={{flex: 1,  alignSelf: 'center'}}>
-              <CheckBox
-                checked={formValues.termsAndCond}
-                onPress={() => handleInputChange({ nativeEvent: { text: !formValues.termsAndCond } }, 'termsAndCond')}
-                containerStyle={styles.checkContainer}
-                textStyle={styles.textStyle}
-                title='Aceptar términos y condiciones'
-                checkedColor={colorsApp.light}
-              />
-            </View>
+          <View style={{ ...(Platform.OS !== 'android'  &&  {zIndex : 10}), flex: 1, paddingRight: 10}}>
+            <Text style={{color: colorsApp.light, marginBottom: 2}}>Edad:</Text>
+            <DropDownPicker
+              items={ages}
+              searchable={true}
+              searchablePlaceholder='Buscar..'
+              placeholder='Edad'
+              defaultValue={formValues.age}
+              style={{backgroundColor: colorsApp.light, borderColor: colorsApp.light}}
+              itemStyle={{
+                justifyContent: 'flex-start',
+              }}
+              onChangeItem={itemValue => handleInputChange({ nativeEvent: { text: itemValue.value } }, 'age')}
+            />
           </View>
+          <CheckBox
+            checked={formValues.termsAndCond}
+            onPress={() => handleInputChange({ nativeEvent: { text: !formValues.termsAndCond } }, 'termsAndCond')}
+            containerStyle={styles.checkContainer}
+            textStyle={styles.textStyle}
+            title='Aceptar términos y condiciones'
+            checkedColor={colorsApp.light}
+          />
           <BtnSolid
             colorBtn={colorsApp.white}
             colorTxt={colorsApp.primary}
@@ -214,23 +210,6 @@ const styles = StyleSheet.create({
     fontWeight: '400', 
     color: colorsApp.light
   },
-  dropDownContainer: {
-    backgroundColor: colorsApp.light,
-    marginLeft: -10,
-    marginTop: 8,
-    height: 50,
-    borderColor: colorsApp.light,
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderRadius: 10,
-    marginLeft: 2,
-    width: 120,
-  }, 
-  dropDownStyle:{ 
-    backgroundColor: colorsApp.light, 
-    width: 120, 
-    marginTop: -4
-  }
 });
 
 export default LoginScreen;

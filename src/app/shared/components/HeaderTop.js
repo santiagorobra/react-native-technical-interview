@@ -2,8 +2,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Header } from 'react-native-elements';
 import { colorsApp } from '../styles/colors';
+import { Icon } from 'react-native-elements'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const HeaderTop = ({title, iconLeft, iconRight}) => {
+export const HeaderTop = ({title, iconLeft, onPress}) => {
   return (
     <Header
       backgroundImage={require('../../../assets/general/bc_navbar.png')}
@@ -13,12 +15,30 @@ export const HeaderTop = ({title, iconLeft, iconRight}) => {
       leftContainerStyle={styles.mtHeaderElements}
       centerContainerStyle={styles.mtHeaderElements}
       rightContainerStyle={styles.mtHeaderElements}
-      leftComponent={iconLeft && { icon: iconLeft, color: colorsApp.white }}
-      centerComponent={{ text: title.toUpperCase(), style: { color: colorsApp.white } }}
+      leftComponent={<CustomLeftComponent name={iconLeft} onPressAction={onPress}/>}
+      centerComponent={{ text: title.toUpperCase(), style: styles.title }}
     />
   )
 }
+
+const CustomLeftComponent = ({name, onPressAction}) => {
+  return (
+    <TouchableOpacity onPress={onPressAction}>
+      <Icon
+        name={name}
+        type='ionicon'
+        color={colorsApp.white}
+      />
+    </TouchableOpacity>
+  );
+}
+
 const styles = StyleSheet.create({
+  title: {
+    color: colorsApp.white, 
+    fontSize: 18, 
+    fontWeight: 'bold'
+  },
   mtHeaderElements: {
     marginTop: -30
   },

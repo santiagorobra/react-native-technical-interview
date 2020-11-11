@@ -4,9 +4,10 @@ import {
   View, 
   Text, 
   TouchableOpacity, 
-  Image,
   FlatList,
-  Platform
+  Platform,
+  Alert,
+  Animated
 } 
 from 'react-native';
 import { SearchBar } from 'react-native-elements';
@@ -21,6 +22,8 @@ const HomeScreen = ({navigation}) => {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState('');
   const [debouncedState, setDebouncedState] = useDebounce(search);
+  const [animation] = useState(new Animated.Value(0));
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,10 +36,14 @@ const HomeScreen = ({navigation}) => {
       let api = searchValue ? `books?q=${searchValue}` : 'books';
       const resp = await fetchWithoutToken(api);
       const body = await resp.json();
-      console.log(body)
       if(body) {
         setBooks(body);
         dispatch(loadingAction(''));
+        Animated.timing(animation, {
+          toValue: 1,
+          duration: 2000,
+          useNativeDriver: false
+        }).start();
       } else {
         showAlert('Error', 'Error en el servidor', () => dispatch(loadingAction('')));
       }
@@ -66,24 +73,27 @@ const HomeScreen = ({navigation}) => {
   let renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.containerList}
-      // onPress={() => {
-      //   navigation.navigate(book.route)
-      // }}
+      onPress={() => {
+        navigation.navigate('Detail');
+      }}
     >
-      <Image
-        style={styles.logo}
+      <Animated.Image
+        style={[styles.logo, {opacity: animation}]}
         source={ item.image_url ? {uri: item.image_url} : require('../../assets/general/noneBook.jpg')}
       />
-      <View>
+      <Animated.View style={{opacity: animation}}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.subtitle}>{item.publisher}</Text>
-      </View>
+      </Animated.View>
     </TouchableOpacity>
   )
 
   return (
     <>
-      <HeaderTop title='Library' iconLeft='notifications'/>
+      <HeaderTop 
+        title='Library' 
+        iconLeft='notifications-outline' 
+        onPress={() => showAlert('Funcion no disponible', 'Lo sentimos las notificaciones no estan disponibles en esta version')}/>
       <SearchBar
         onChangeText={handleSearch}
         value={search}

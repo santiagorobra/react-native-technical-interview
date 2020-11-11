@@ -131,7 +131,10 @@ NPM: npm install @react-navigation/stack
 NPM: npm install @react-navigation/bottom-tabs
 
 ## React Native dropdown picker
-Url: https://github.com/hossein-zare/react-native-dropdown-picker
+URL: https://github.com/hossein-zare/react-native-dropdown-picker
 NPM: npm install react-native-dropdown-picker --save
 IOS: npx pod-install ios
 
+## Lodash
+URL: https://lodash.com/
+NPM: npm i --save lodash

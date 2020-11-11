@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
   inputContainerStyle: {
     backgroundColor: colorsApp.light,
     marginLeft: -10,
-    marginTop: 8,
-    height: 50,
+    marginTop: 2,
+    height: 45,
     paddingLeft: 10,
     paddingRight: 10,
-    borderRadius: 10
+    borderRadius: 6
   },
 });
 
