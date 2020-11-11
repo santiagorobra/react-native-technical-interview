@@ -130,7 +130,8 @@ NPM: npm install @react-navigation/stack
 ## TabsNavigation
 NPM: npm install @react-navigation/bottom-tabs
 
-## React Native picker
-Url: https://github.com/react-native-community/react-native-picker
-npm install @react-native-community/picker --save
+## React Native dropdown picker
+Url: https://github.com/hossein-zare/react-native-dropdown-picker
+NPM: npm install react-native-dropdown-picker --save
 IOS: npx pod-install ios
+

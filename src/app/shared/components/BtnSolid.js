@@ -1,16 +1,15 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { colorsApp } from '../styles/colors';
 
-const BtnSolid = ({ title, handleButton, disabled}) => {
+const BtnSolid = ({ title, handleButton, disabled, colorBtn, colorTxt}) => {
   return (
     <View style={styles.btnContainer}>
       <Button
         disabled={disabled}
-        buttonStyle={styles.buttonStyle}
+        buttonStyle={[styles.buttonStyle, {backgroundColor: colorBtn}]}
         containerStyle={styles.containerStyle}
-        titleStyle={styles.titleStyle}
+        titleStyle={{color: colorTxt}}
         title={title}
         onPress={handleButton}
       />
@@ -27,14 +26,10 @@ const styles = StyleSheet.create({
   buttonStyle: {
     padding: 20,
     borderRadius: 10,
-    backgroundColor: '#FFF',
   },
   containerStyle: {
     width: '70%',
   },
-  titleStyle: {
-    color: colorsApp.primary,
-  }
 });
 
 export default BtnSolid;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Image } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+import { colorsApp } from '../styles/colors';
 
 const HeaderIconLeftCustom = ({icon, type, onPress}) => {
   const deviceWidth = Dimensions.get('window').width;
@@ -11,7 +12,7 @@ const HeaderIconLeftCustom = ({icon, type, onPress}) => {
         type="clear"
         icon={
           <Icon
-            color='#000'
+            color={colorsApp.black}
             name={icon}
             size={25}
             type={type}
@@ -24,7 +25,7 @@ const HeaderIconLeftCustom = ({icon, type, onPress}) => {
         type="clear"
         icon={
           <Icon
-            color='#FFF'
+            color={colorsApp.light}
             name={icon}
             size={25}
             type={type}

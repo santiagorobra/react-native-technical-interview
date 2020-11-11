@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   overlay: {
     height: 100,
     width: 200,
-    backgroundColor: '#fff',
+    backgroundColor: colorsApp.light,
     borderColor: colorsApp.primary,
     borderWidth: 2,
     borderRadius: 10,

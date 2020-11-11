@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { colorsApp } from '../shared/styles/colors';
 
 const SplashScreen = () => {
   return (
@@ -11,7 +12,7 @@ const SplashScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: colorsApp.light,
   }
 });
 

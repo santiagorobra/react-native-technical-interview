@@ -1,10 +1,10 @@
 import { types } from "../types/types"
 
-export const loginAuthAction = (token) => {
+export const loginAuthAction = (user) => {
   return {
     type: types.login,
     payload: {
-      userToken: token,
+      user,
     }
   }
 }

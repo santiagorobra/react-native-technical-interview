@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Input } from 'react-native-elements';
+import { colorsApp } from '../styles/colors';
 
 const InputSolid = ({ label, keyInput, password, handleInputChange}) => {
   return (
@@ -18,11 +19,11 @@ const InputSolid = ({ label, keyInput, password, handleInputChange}) => {
 
 const styles = StyleSheet.create({
   textInputs: {
-    color: '#FFF',
+    color: colorsApp.light,
     fontSize: 15
   },
   inputContainerStyle: {
-    backgroundColor: '#FFF',
+    backgroundColor: colorsApp.light,
     marginLeft: -10,
     marginTop: 8,
     height: 50,

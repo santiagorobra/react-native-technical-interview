@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { loginAuthAction, logoutAuthAction } from '../redux/actions/auth';
 import Loading from '../shared/components/Loading';
-import AuthStack from './AuthStack';
 import SplashScreen from '../screens/SplashScreen';
-import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import HomeStack from './HomeStack';
 
 const Navigator = () => {
   const dispatch = useDispatch();
@@ -16,18 +16,18 @@ const Navigator = () => {
 
   useEffect(() => {
     const bootstrapAsync = async () => {
-      let userToken;
+      // AsyncStorage.clear();
+      let user;
       try {
-        userToken = await AsyncStorage.getItem('userToken');
-        if(userToken) {
-          dispatch(loginAuthAction(userToken));
+        user = await AsyncStorage.getItem('userWbooks');
+        if(user) {
+          dispatch(loginAuthAction(user));
           setChecking(false);
         } else {
           dispatch(logoutAuthAction());
           setChecking(false);
         }
       } catch (e) {
-        // Restoring token failed
       }
     };
     bootstrapAsync();
@@ -40,10 +40,10 @@ const Navigator = () => {
   return (
     <NavigationContainer>
       <Loading/>
-      {state.auth.userToken == null ? (
-        <AuthStack/>
+      {state.auth.user == null ? (
+        <LoginScreen/>
       ) : (
-        <HomeScreen/>
+        <HomeStack/>
       )}
     </NavigationContainer>
   );

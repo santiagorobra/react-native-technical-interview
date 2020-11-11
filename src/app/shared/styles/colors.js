@@ -1,6 +1,9 @@
 export const colorsApp = {
   primary: '#00adee',
+  white: '#FFF',
+  light: '#eaf6fa',
   secondary: '#0175de',
   danger: '#a33026',
-  background: '#eaf6fa'
+  black: '#000',
+  muted: '#a9a9a9'
 }

@@ -2,19 +2,21 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HeaderIconLeftCustom from '../shared/components/HeaderIconLeftCustom';
-import LoginScreen from '../screens/LoginScreen';
+import { HomeTabs } from './HomeTabs';
 
 const Stack = createStackNavigator();
+
 const screens = [
   {
-    label: 'Login',
-    route: 'Login',
-    component: LoginScreen
+    label: 'Home',
+    route: 'Home',
+    component: HomeTabs
   },
 ];
-const AuthStack = () => {
+
+const HomeStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Home">
       {
         screens.map((screen, i) => (
           <Stack.Screen
@@ -22,7 +24,7 @@ const AuthStack = () => {
             name={screen.route} 
             component={screen.component}
             options={({navigation}) => ({
-              headerShown: screen.label === 'Login' ? false : true,
+              headerShown: screen.label === 'Home' ? false : true,
               title: screen.label,
               headerTintColor: 'transparent',
               headerStyle: styles.headerStyle,
@@ -50,4 +52,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AuthStack;
+export default HomeStack;
