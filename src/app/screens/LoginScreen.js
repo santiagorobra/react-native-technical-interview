@@ -103,7 +103,6 @@ const LoginScreen = () => {
         showAlert('Error', 'Datos invalidos', () => dispatch(loadingAction('')));
       }
     } catch (err) {
-      console.log(err)
       showAlert('Error', 'Error en el servidor', () => dispatch(loadingAction('')));
     }
   }
