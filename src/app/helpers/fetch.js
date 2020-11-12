@@ -1,6 +1,7 @@
+import { Platform } from 'react-native';
 import { enviroment } from "../../enviroments/enviroment";
 
-const baseUrl = enviroment.URL;
+const baseUrl = Platform.OS === 'ios' ? enviroment.URL.ios : enviroment.URL.android;
 
 const fetchWithoutToken = (endpoint, data, method = 'GET') => {
   const url = `${baseUrl}/${endpoint}`;

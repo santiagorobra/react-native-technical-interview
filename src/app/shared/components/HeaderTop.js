@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { Header } from 'react-native-elements';
 import { colorsApp } from '../styles/colors';
 import { Icon } from 'react-native-elements'
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   containerHeader: {
     height: 120,
-    marginTop: -30,
+    marginTop: Platform.OS === 'ios' ? -30 : 0,
     paddingLeft: 20,
     paddingRight: 20
   }

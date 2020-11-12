@@ -8,10 +8,16 @@ const appSettings = {
   },
   Environments: {
     Dev: {
-      Url: "http://localhost:3000",
+      Url: {
+        android: "http://10.0.2.2:3000",
+        ios: "http://localhost:3000"
+      },
     },
     Prod: {
-      Url: "http://localhost:3000",
+      Url: {
+        android: "http://10.0.2.2:3000",
+        ios: "http://localhost:3000"
+      },
     },
   }
 }

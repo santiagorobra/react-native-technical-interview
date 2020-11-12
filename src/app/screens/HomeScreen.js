@@ -101,7 +101,9 @@ const HomeScreen = ({navigation}) => {
         value={search}
         platform={Platform.OS}
         placeholder="Buscar Libro..."
-        containerStyle={{backgroundColor: colorsApp.light}}
+        cancelIcon={true}
+        inputContainerStyle={styles.inputContainerSearch}
+        containerStyle={styles.containerSearch}
       />
       <View style={styles.container}>
         {
@@ -139,8 +141,8 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowRadius: 2.84,
+    elevation: 2,
   },
   logo: {
     width: 60,
@@ -160,7 +162,15 @@ const styles = StyleSheet.create({
     color: colorsApp.muted,
     maxWidth: '90%'
   },
-  
+  inputContainerSearch: {
+    backgroundColor: colorsApp.white, 
+    borderRadius: 10
+  },
+  containerSearch: {
+    backgroundColor: colorsApp.light, 
+    paddingLeft: 15, 
+    paddingRight: 15
+  }
 });
 
 export default HomeScreen;
