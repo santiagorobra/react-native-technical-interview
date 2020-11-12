@@ -138,3 +138,8 @@ IOS: npx pod-install ios
 ## Lodash
 URL: https://lodash.com/
 NPM: npm i --save lodash
+
+## React Native Linear Gradient
+URL: https://github.com/react-native-linear-gradient/react-native-linear-gradient
+NPM: npm install react-native-linear-gradient --save
+IOS: npx pod-install ios

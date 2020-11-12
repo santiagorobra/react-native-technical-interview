@@ -13,6 +13,7 @@ from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import { loadingAction } from '../redux/actions/loadingAction';
+import { detailBookAction } from '../redux/actions/detailBookAction';
 import { fetchWithoutToken } from '../helpers/fetch';
 import { colorsApp } from '../shared/styles/colors';
 import { HeaderTop } from '../shared/components/HeaderTop';
@@ -75,6 +76,7 @@ const HomeScreen = ({navigation}) => {
       style={styles.containerList}
       onPress={() => {
         navigation.navigate('Detail');
+        dispatch(detailBookAction(item));
       }}
     >
       <Animated.Image
@@ -93,7 +95,7 @@ const HomeScreen = ({navigation}) => {
       <HeaderTop 
         title='Library' 
         iconLeft='notifications-outline' 
-        onPress={() => showAlert('Funcion no disponible', 'Lo sentimos las notificaciones no estan disponibles en esta version')}/>
+        onPress={() => showAlert('Función no disponible', 'Lo sentimos las notificaciones no están disponibles en esta versión')}/>
       <SearchBar
         onChangeText={handleSearch}
         value={search}

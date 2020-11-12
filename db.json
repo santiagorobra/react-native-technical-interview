@@ -15,6 +15,14 @@
       "age": "26",
       "termsAndCond": true,
       "id": 2
+    },
+    {
+      "name": "Assad",
+      "lastname": "Assad’s",
+      "email": "Asda@dasda.xo",
+      "age": "18",
+      "termsAndCond": true,
+      "id": 3
     }
   ],
   "books": [
@@ -34,7 +42,17 @@
       "genre": "other",
       "publisher": "Pocket Books",
       "year": "1989",
-      "image_url": null
+      "image_url": null,
+      "comments": [
+        {
+          "name": "John Appledeed",
+          "comment": "It was great to see you again earlier. Let´s definitely get that coffe it was great to see you gain earlier."
+        },
+        {
+          "name": "Susan Collins",
+          "comment": "Let´s definitely get that coffe it was great to see you again earlier."
+        }
+      ]
     },
     {
       "id": 3,
@@ -52,7 +70,17 @@
       "genre": "suspense",
       "publisher": "Pocket Books",
       "year": "1989",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg"
+      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg",
+      "comments": [
+        {
+          "name": "John Appledeed",
+          "comment": "It was great to see you again earlier. Let´s definitely get that coffe it was great to see you gain earlier."
+        },
+        {
+          "name": "Susan Collins",
+          "comment": "Let´s definitely get that coffe it was great to see you again earlier."
+        }
+      ]
     },
     {
       "id": 5,
@@ -79,7 +107,17 @@
       "genre": "suspense",
       "publisher": "Scribner",
       "year": "2014",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
+      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg",
+      "comments": [
+        {
+          "name": "John Appledeed",
+          "comment": "It was great to see you again earlier. Let´s definitely get that coffe it was great to see you gain earlier."
+        },
+        {
+          "name": "Susan Collins",
+          "comment": "Let´s definitely get that coffe it was great to see you again earlier."
+        }
+      ]
     },
     {
       "id": 8,
@@ -97,7 +135,13 @@
       "genre": "fiction",
       "publisher": "Crown Publishing Group",
       "year": "2011",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg"
+      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg",
+      "comments": [
+        {
+          "name": "John Appledeed",
+          "comment": "It was great to see you again earlier. Let´s definitely get that coffe it was great to see you gain earlier."
+        }
+      ]
     }
   ]
 }
